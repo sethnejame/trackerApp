@@ -69,7 +69,6 @@
             this.placeNumberLabel.Size = new System.Drawing.Size(164, 32);
             this.placeNumberLabel.TabIndex = 13;
             this.placeNumberLabel.Text = "Place Number";
-            this.placeNumberLabel.Click += new System.EventHandler(this.placeNumberLabel_Click);
             // 
             // prizeAmountValue
             // 
@@ -150,6 +149,7 @@
             this.createPrizeButton.TabIndex = 23;
             this.createPrizeButton.Text = "Create Prize";
             this.createPrizeButton.UseVisualStyleBackColor = true;
+            this.createPrizeButton.Click += new System.EventHandler(this.createPrizeButton_Click);
             // 
             // CreatePrizeForm
             // 
