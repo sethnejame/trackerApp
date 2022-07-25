@@ -11,7 +11,8 @@ public partial class CreatePrizeForm : Form
     }
 
     private void createPrizeButton_Click(object sender, EventArgs e)
-        {
+    {
+
         if (ValidateForm())
         {
             var model = new PrizeModel(
@@ -22,6 +23,15 @@ public partial class CreatePrizeForm : Form
 
             foreach (var db in GlobalConfig.Connections)
                 db.CreatePrize(model);
+
+            placeNumberValue.Text = "";
+            placeNameValue.Text = "";
+            prizeAmountValue.Text = "0";
+            prizePercentageValue.Text = "0";
+        }
+        else
+        {
+            MessageBox.Show("This form contains invalid data. Please check your input and try again.");
         }
     }
 
