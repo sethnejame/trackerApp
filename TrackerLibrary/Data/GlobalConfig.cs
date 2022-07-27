@@ -1,4 +1,6 @@
-﻿namespace TrackerLibrary.Data;
+﻿using System.Configuration;
+
+namespace TrackerLibrary.Data;
 
 public static class GlobalConfig
 {
@@ -19,5 +21,10 @@ public static class GlobalConfig
             var textFile = new TextFileConnector();
             Connections.Add(textFile);
         }
+    }
+
+    public static string ConnectionString(string path)
+    {
+        return ConfigurationManager.ConnectionStrings[path].ConnectionString;
     }
 }

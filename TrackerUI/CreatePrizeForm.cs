@@ -1,5 +1,5 @@
-﻿using TrackerLibrary;
-using TrackerLibrary.Data;
+﻿using TrackerLibrary.Data;
+using TrackerLibrary.Models;
 
 namespace TrackerUI;
 
@@ -52,8 +52,6 @@ public partial class CreatePrizeForm : Form
         var prizePercentageValid = int.TryParse(prizePercentageValue.Text, out int prizePercentageResult);
 
         if (!prizeAmountValid && !prizePercentageValid) output = false;
-
-        if (prizeAmountValid && prizePercentageValid) output = false;
 
         if (prizeAmtResult <= 0 && prizePercentageResult <= 0) output = false;
 

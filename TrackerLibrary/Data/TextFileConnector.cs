@@ -1,4 +1,6 @@
-﻿namespace TrackerLibrary.Data;
+﻿using TrackerLibrary.Models;
+
+namespace TrackerLibrary.Data;
 
 public class TextFileConnector : IDataConnection
 {
