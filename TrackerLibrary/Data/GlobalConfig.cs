@@ -1,25 +1,25 @@
 ﻿using System.Configuration;
+using TrackerLibrary.Models;
 
 namespace TrackerLibrary.Data;
 
 public static class GlobalConfig
 {
-    public static List<IDataConnection> Connections { get; private set; } = new();
+    public static IDataConnection Connection { get; private set; }
 
-    public static void InitializeConnections(bool database, bool textFiles)
+    public static void InitializeConnections(ConnectionType connectionType)
     {
-        if (database)
+        if (connectionType == ConnectionType.Sql)
         {
             // TODO - Create sql connexion
-            var db = new SqlConnector();
-            Connections.Add(db);
+            var sql = new SqlConnector();
+            Connection = sql;
         }
-
-        if (textFiles)
+        else if (connectionType == ConnectionType.TextFile)
         {
             // TODO - Create txt connexion
             var textFile = new TextFileConnector();
-            Connections.Add(textFile);
+            Connection = textFile;
         }
     }
 

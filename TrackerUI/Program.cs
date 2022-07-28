@@ -1,3 +1,4 @@
+using TrackerLibrary.Models;
 using static TrackerLibrary.Data.GlobalConfig;
 
 namespace TrackerUI;
@@ -14,7 +15,7 @@ internal static class Program
         // see https://aka.ms/applicationconfiguration.
         ApplicationConfiguration.Initialize();
 
-        InitializeConnections(true, true);
+        InitializeConnections(ConnectionType.TextFile);
         //Application.Run(new TournamentDashboardForm());
         Application.Run(new CreatePrizeForm());
     }
