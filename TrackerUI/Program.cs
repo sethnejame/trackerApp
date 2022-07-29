@@ -15,8 +15,8 @@ internal static class Program
         // see https://aka.ms/applicationconfiguration.
         ApplicationConfiguration.Initialize();
 
-        InitializeConnections(ConnectionType.TextFile);
+        InitializeConnections(ConnectionType.Sql);
         //Application.Run(new TournamentDashboardForm());
-        Application.Run(new CreatePrizeForm());
+        Application.Run(new CreateTeamForm());
     }
 }
