@@ -7,4 +7,9 @@ public class PersonModel
     public string LastName { get; set; }
     public string EmailAddress { get; set; }
     public string Mobile { get; set; }
+
+    public string FullName
+    {
+        get { return $"{ FirstName } { LastName }"; }
+    }
 }

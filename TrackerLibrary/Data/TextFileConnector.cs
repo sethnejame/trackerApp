@@ -39,4 +39,9 @@ public class TextFileConnector : IDataConnection
 
         return model;
     }
+
+    public List<PersonModel> GetAllPeople()
+    {
+        throw new NotImplementedException();
+    }
 }

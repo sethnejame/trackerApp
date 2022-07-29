@@ -7,9 +7,11 @@ namespace TrackerLibrary.Data;
 
 public class SqlConnector : IDataConnection
 {
+    private const string db = "Tournaments";
+
     public PersonModel CreatePerson(PersonModel model)
     {
-        using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnectionString("Tournaments")))
+        using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnectionString(db)))
         {
             var p = new DynamicParameters();
             p.Add("@FirstName", model.FirstName);
@@ -28,7 +30,7 @@ public class SqlConnector : IDataConnection
 
     public PrizeModel CreatePrize(PrizeModel model)
     {
-        using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnectionString("Tournaments")))
+        using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnectionString(db)))
         {
             var p = new DynamicParameters();
             p.Add("@PlaceNumber", model.PlaceNumber);
@@ -43,5 +45,15 @@ public class SqlConnector : IDataConnection
 
             return model;
         }
+    }
+
+    public List<PersonModel> GetAllPeople()
+    {
+        var people = new List<PersonModel>();
+
+        using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnectionString(db)))
+            people = connection.Query<PersonModel>("dbo.spPeople_GetAllPeople").ToList();
+
+        return people;
     }
 }
